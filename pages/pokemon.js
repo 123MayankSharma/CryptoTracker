@@ -30,13 +30,22 @@ const pokemon = ({ pokemonInfo }) => {
             <h1 className="text-4xl mb-2 capitalize text-center">{pokemonInfo.name}</h1>
             <img src={pokemonInfo.image} alt={pokemonInfo.name} />
             <p>
-            <span className="font-bold ml-2 text-2xl">Weight:{pokemonInfo.weight}</span>
+            <span className="font-bold ml-2 text-2xl">Weight: <span className="font-serif">{pokemonInfo.weight}</span></span>
             </p>
             <p>
-            <span className="font-bold ml-2 text-2xl">Height:{pokemonInfo.height}</span>
-            </p> 
-            <h2 className="text-2xl "></h2>
+            <span className="font-bold ml-2 text-2xl">Height: <span className="font-serif">{pokemonInfo.height}</span></span>
+            </p>
+            <span className="font-bold ml-2 text-2xl">Types: </span>
+            
+            {
+                pokemonInfo.types.map((type,idx)=>{
+                return (
+                  <span key={idx*Math.random()} className="mr-2 text-2xl font-semibold">{type.type.name} </span>
+                )
 
+
+            })} 
+            <p className="mt-10 text-center"><Link href="/"><a className="text-2xl underline">HomePage</a></Link></p>
 
         </Layout>
 
